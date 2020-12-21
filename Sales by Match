@@ -1,0 +1,35 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the sockMerchant function below.
+def sockMerchant(n, ar):
+    
+    colours = []
+    pairs = 0
+    
+    for i in range(0,n):
+        if ar[i] not in colours:
+            colours.append(ar[i])
+        else:
+            pairs += 1
+            colours.remove(ar[i])
+    return(pairs)
+            
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = sockMerchant(n, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
