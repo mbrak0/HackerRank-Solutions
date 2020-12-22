@@ -1,0 +1,45 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the repeatedString function below.
+def repeatedString(s, n):
+    
+    a_num = 0
+    a_extra = 0
+    
+    for i in range (0,len(s)):
+        if s[i] == "a":
+            a_num += 1
+    
+    comp_s = n // len(s)
+    
+    if (n % len(s)) != 0:
+    
+        incomp_s = n % len(s)
+        
+        for j in range (0,incomp_s):
+            if s[j] == "a":
+                a_extra += 1
+    
+    a_total = a_num * comp_s + a_extra
+    
+    return(a_total)   
+    
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    n = int(input())
+
+    result = repeatedString(s, n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
