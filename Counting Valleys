@@ -23,7 +23,7 @@ def countingValleys(steps, path):
     for i in range(0,steps):
         
         if path[i] == "D":
-            if altitude == 0 and path[i+1] == "D":
+            if altitude == 0:
                 valleys += 1
             altitude -= 1
         else:
