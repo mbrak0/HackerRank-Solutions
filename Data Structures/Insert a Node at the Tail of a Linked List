@@ -36,17 +36,17 @@ def print_singly_linked_list(node, sep, fptr):
 #
 def insertNodeAtTail(head, data):
 
-    newNodes = SinglyLinkedListNode(data)
-    #print(newNodes.data)
+    newNode = SinglyLinkedListNode(data)
+    #print(newNode.data)
     
     if head is None:
-        head = newNodes
+        head = newNode
         return(head)
     
     tail = head
     while tail.next is not None:
         tail = tail.next
-    tail.next = newNodes
+    tail.next = newNode
     return(head)
     
 if __name__ == '__main__':
