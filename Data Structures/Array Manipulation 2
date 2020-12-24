@@ -1,0 +1,51 @@
+#This solution has a complexity of O(n+m). This was achieved using the prefix sum algorithm.
+#YouTube videos that helped to construct this solution: https://youtu.be/pVS3yhlzrlQ and https://youtu.be/hDhf04AJIRs by "JAVAAID - Coding Interview Prepartion" 
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the arrayManipulation function below.
+def arrayManipulation(n, queries):
+
+    queryList = [ 0 for _ in range(n+2) ]
+     
+    for query in queries:
+        
+        lower, upper, num = list(map(int, query))
+
+        queryList[lower] += num
+        queryList[upper+1] -= num
+
+    queryListSum = 0
+    max_val = 0
+    
+    for i in range(0,len(queryList)):
+        queryListSum += queryList[i]
+        max_val = max(max_val,queryListSum)
+        
+    return(max_val)
+        
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nm = input().split()
+
+    n = int(nm[0])
+
+    m = int(nm[1])
+
+    queries = []
+
+    for _ in range(m):
+        queries.append(list(map(int, input().rstrip().split())))
+
+    result = arrayManipulation(n, queries)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
