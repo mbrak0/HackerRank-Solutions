@@ -1,0 +1,18 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+T = int(input())
+
+for _ in range(T):
+    
+    line = input()
+    even_string = ""
+    odd_string = ""
+    
+    for count, character in enumerate(line):
+        if count % 2 == 0:
+            even_string += character
+        else:
+            odd_string += character
+        
+    print(even_string, odd_string)
+    
